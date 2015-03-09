@@ -92,4 +92,13 @@ public class Alumno
         }
         return calificacionFinal;
     }
+    
+    /**
+     * Metodo que muestra los datos del alumno
+     */
+    public void datosDelAlumno()
+    {
+        System.out.println("El alumno " + nombre + " que tiene " + edad + " años,ha obtenido una nota media de "
+                           + media + " y su calificacion final del curso es " + calificacionFinal);
+    }
 }
