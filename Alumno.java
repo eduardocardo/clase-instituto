@@ -14,7 +14,7 @@ public class Alumno
     //indica una serie de notas del alumno
     private int[] notas;
     //indica la media de las notas del alumno
-    private float media;
+    private int media;
     //indica el numero de clase del alumno
     private static int numeroClase;
     //indica la nota de corte para aprobar
@@ -39,7 +39,7 @@ public class Alumno
      * Metodo que añade notas al alumno
      * @param nota es la nota que se quiere añadir al alumno
      */
-    public void AñadirNota(int nota)
+    public void añadirNota(int nota)
     {
         //se crea un array temporal que aumenta de tamaño cada vez que se introduce una nota
         int[] temp = new int[notas.length + 1];
@@ -51,5 +51,21 @@ public class Alumno
             temp[i] = notas[i];
         }
         notas = temp;
+    }
+    
+    /**
+     * Metodo que calcula la nota media de un alumno
+     * @return la nota media del alumno
+     */
+    public int calcularNotaMedia()
+    {
+       
+        int totalNotas = 0;
+        for(int i = 0; i < notas.length; i++)
+        {
+            totalNotas += notas[i];
+        }
+        media = totalNotas/notas.length;
+        return media;
     }
 }
