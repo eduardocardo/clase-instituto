@@ -16,11 +16,13 @@ public class Alumno
     //indica la media de las notas del alumno
     private int media;
     //indica el numero de clase del alumno
-    private static int numeroClase;
+    private static int numeroClase = 0;
     //indica la nota de corte para aprobar
     private static final int NOTA_APROBADO = 5;
     //indica si el alumno esta aprobado
     private String calificacionFinal;
+    private int numeroClaseDeEsteAlumno;
+    
 
     /**
      * Constructor for objects of class Alumno
@@ -31,7 +33,8 @@ public class Alumno
         this.edad = edad;
         notas = new int[0];
         media = 0;
-        numeroClase = 1;
+        numeroClase++;
+        numeroClaseDeEsteAlumno = numeroClase;
         calificacionFinal = "suspenso";
     }
 
@@ -107,8 +110,8 @@ public class Alumno
      */
     public String datosDelAlumno()
     {
-        String datos = "El alumno " + nombre + " que tiene " + edad + " años,ha obtenido una nota media de "
-            + media + " y su calificacion final del curso es " + calificacionFinal;
+        String datos = "El alumno " + nombre + " que tiene " + edad + " años,con numero de clase " + numeroClaseDeEsteAlumno 
+                        + " ha obtenido una nota media de " + media + " y su calificacion final del curso es " + calificacionFinal;
         return datos;                   
     }
 }
