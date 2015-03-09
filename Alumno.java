@@ -41,16 +41,25 @@ public class Alumno
      */
     public void añadirNota(int nota)
     {
-        //se crea un array temporal que aumenta de tamaño cada vez que se introduce una nota
-        int[] temp = new int[notas.length + 1];
-        //introducimos la nota al alumno
-        temp[temp.length - 1] = nota;
-        for(int i = 0; i < notas.length; i++)
+        if(nota < 0 || nota > 10)
         {
-            //se almacena en el array temporal los valores del array de notas
-            temp[i] = notas[i];
+            System.out.println("Has introducido un valor erroneo de nota");
+            System.out.println("Introduce valores comprendidos entre 0 y 10");
         }
-        notas = temp;
+        else
+        {
+            //se crea un array temporal que aumenta de tamaño cada vez que se introduce una nota
+            int[] temp = new int[notas.length + 1];
+            //introducimos la nota al alumno
+            temp[temp.length - 1] = nota;
+            for(int i = 0; i < notas.length; i++)
+            {
+                //se almacena en el array temporal los valores del array de notas
+                temp[i] = notas[i];
+            }
+            notas = temp;
+        }
+        
     }
 
     /**
@@ -92,13 +101,14 @@ public class Alumno
         }
         return calificacionFinal;
     }
-    
+
     /**
      * Metodo que muestra los datos del alumno
      */
-    public void datosDelAlumno()
+    public String datosDelAlumno()
     {
-        System.out.println("El alumno " + nombre + " que tiene " + edad + " años,ha obtenido una nota media de "
-                           + media + " y su calificacion final del curso es " + calificacionFinal);
+        String datos = "El alumno " + nombre + " que tiene " + edad + " años,ha obtenido una nota media de "
+            + media + " y su calificacion final del curso es " + calificacionFinal;
+        return datos;                   
     }
 }
