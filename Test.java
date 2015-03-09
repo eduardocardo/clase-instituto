@@ -32,7 +32,8 @@ public class Test
         grupoAlumno = null;
     }
     /**
-     * Metodo que crea 5 alumnos y muestra sus datos
+     * Metodo que crea un numero alumnos y muestra sus datos
+     * @param numeroAlumnos es el numero de alumnos que se quiere crear
      */
     public void testDatos(int numeroAlumnos)
     {
@@ -42,10 +43,7 @@ public class Test
         for(int i = 0;i < numeroAlumnos; i++)
         {
             grupoAlumno[i] = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-            //         Alumno alumno2 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-            //         Alumno alumno3 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-            //         Alumno alumno4 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-            //         Alumno alumno5 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+           
         }
         //se añade notas a los alumnos
 
@@ -55,40 +53,19 @@ public class Test
             grupoAlumno[i].añadirNota(rnd.nextInt(11));
             grupoAlumno[i].añadirNota(rnd.nextInt(11));
         }
-        //         alumno2.añadirNota(rnd.nextInt(11));
-        //         alumno2.añadirNota(rnd.nextInt(11));
-        //         alumno2.añadirNota(rnd.nextInt(11));
-        //         
-        //         alumno3.añadirNota(rnd.nextInt(11));
-        //         alumno3.añadirNota(rnd.nextInt(11));
-        //         alumno3.añadirNota(rnd.nextInt(11));
-        //         
-        //         alumno4.añadirNota(rnd.nextInt(11));
-        //         alumno4.añadirNota(rnd.nextInt(11));
-        //         alumno4.añadirNota(rnd.nextInt(11));
-        //         
-        //         alumno5.añadirNota(rnd.nextInt(11));
-        //         alumno5.añadirNota(rnd.nextInt(11));
-        //         alumno5.añadirNota(rnd.nextInt(11));
+        
 
         //se comprueba si el alumno esta aprobado
         for(int i = 0;i < numeroAlumnos; i++)
         {
             grupoAlumno[i].comprobarAprobado();
         }
-        //         alumno2.comprobarAprobado();
-        //         alumno3.comprobarAprobado();
-        //         alumno4.comprobarAprobado();
-        //         alumno5.comprobarAprobado();
-
+       
         //se muestran los datos de los alumnos
         for(int i = 0; i < numeroAlumnos; i ++)
         {
             System.out.println(grupoAlumno[i].datosDelAlumno());
         }
-        //         System.out.println(alumno2.datosDelAlumno());
-        //         System.out.println(alumno3.datosDelAlumno());
-        //         System.out.println(alumno4.datosDelAlumno());
-        //         System.out.println(alumno5.datosDelAlumno());
+       
     }
 }
