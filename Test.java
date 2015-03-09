@@ -9,7 +9,8 @@ public class Test
 {
     //array de tipo String que almacena nombres de alumnos
     private String[] nombreAlumno;
-   
+    //
+    private Alumno[] grupoAlumno;
 
     /**
      * Constructor for objects of class Test
@@ -27,59 +28,67 @@ public class Test
         nombreAlumno[7] = "Edu";
         nombreAlumno[8] = "Fran";
         nombreAlumno[9] = "Manuel";
-        
-        
-        
-      
-    }
 
+        grupoAlumno = null;
+    }
     /**
      * Metodo que crea 5 alumnos y muestra sus datos
      */
-    public void testDatos()
+    public void testDatos(int numeroAlumnos)
     {
+        grupoAlumno = new Alumno[numeroAlumnos];
         //se crea un objeto random para que al crear el alumno tengo nombre,edad,notas aleatorias
         Random rnd = new Random();
-        
-        Alumno alumno1 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-        Alumno alumno2 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-        Alumno alumno3 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-        Alumno alumno4 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-        Alumno alumno5 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
-        
+        for(int i = 0;i < numeroAlumnos; i++)
+        {
+            grupoAlumno[i] = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+            //         Alumno alumno2 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+            //         Alumno alumno3 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+            //         Alumno alumno4 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+            //         Alumno alumno5 = new Alumno(nombreAlumno[rnd.nextInt(10)],rnd.nextInt(15) + 10);
+        }
         //se añade notas a los alumnos
-        alumno1.añadirNota(rnd.nextInt(11));
-        alumno1.añadirNota(rnd.nextInt(11));
-        alumno1.añadirNota(rnd.nextInt(11));
-        
-        alumno2.añadirNota(rnd.nextInt(11));
-        alumno2.añadirNota(rnd.nextInt(11));
-        alumno2.añadirNota(rnd.nextInt(11));
-        
-        alumno3.añadirNota(rnd.nextInt(11));
-        alumno3.añadirNota(rnd.nextInt(11));
-        alumno3.añadirNota(rnd.nextInt(11));
-        
-        alumno4.añadirNota(rnd.nextInt(11));
-        alumno4.añadirNota(rnd.nextInt(11));
-        alumno4.añadirNota(rnd.nextInt(11));
-        
-        alumno5.añadirNota(rnd.nextInt(11));
-        alumno5.añadirNota(rnd.nextInt(11));
-        alumno5.añadirNota(rnd.nextInt(11));
-        
+
+        for(int i = 0; i < numeroAlumnos; i++)
+        {
+            grupoAlumno[i].añadirNota(rnd.nextInt(11));
+            grupoAlumno[i].añadirNota(rnd.nextInt(11));
+            grupoAlumno[i].añadirNota(rnd.nextInt(11));
+        }
+        //         alumno2.añadirNota(rnd.nextInt(11));
+        //         alumno2.añadirNota(rnd.nextInt(11));
+        //         alumno2.añadirNota(rnd.nextInt(11));
+        //         
+        //         alumno3.añadirNota(rnd.nextInt(11));
+        //         alumno3.añadirNota(rnd.nextInt(11));
+        //         alumno3.añadirNota(rnd.nextInt(11));
+        //         
+        //         alumno4.añadirNota(rnd.nextInt(11));
+        //         alumno4.añadirNota(rnd.nextInt(11));
+        //         alumno4.añadirNota(rnd.nextInt(11));
+        //         
+        //         alumno5.añadirNota(rnd.nextInt(11));
+        //         alumno5.añadirNota(rnd.nextInt(11));
+        //         alumno5.añadirNota(rnd.nextInt(11));
+
         //se comprueba si el alumno esta aprobado
-        alumno1.comprobarAprobado();
-        alumno2.comprobarAprobado();
-        alumno3.comprobarAprobado();
-        alumno4.comprobarAprobado();
-        alumno5.comprobarAprobado();
-        
+        for(int i = 0;i < numeroAlumnos; i++)
+        {
+            grupoAlumno[i].comprobarAprobado();
+        }
+        //         alumno2.comprobarAprobado();
+        //         alumno3.comprobarAprobado();
+        //         alumno4.comprobarAprobado();
+        //         alumno5.comprobarAprobado();
+
         //se muestran los datos de los alumnos
-        System.out.println(alumno1.datosDelAlumno());
-        System.out.println(alumno2.datosDelAlumno());
-        System.out.println(alumno3.datosDelAlumno());
-        System.out.println(alumno4.datosDelAlumno());
-        System.out.println(alumno5.datosDelAlumno());
+        for(int i = 0; i < numeroAlumnos; i ++)
+        {
+            System.out.println(grupoAlumno[i].datosDelAlumno());
+        }
+        //         System.out.println(alumno2.datosDelAlumno());
+        //         System.out.println(alumno3.datosDelAlumno());
+        //         System.out.println(alumno4.datosDelAlumno());
+        //         System.out.println(alumno5.datosDelAlumno());
     }
 }
