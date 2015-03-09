@@ -20,19 +20,19 @@ public class Alumno
     //indica la nota de corte para aprobar
     private static final int NOTA_APROBADO = 5;
     //indica si el alumno esta aprobado
-    private boolean aprobado;
+    private String calificacionFinal;
 
     /**
      * Constructor for objects of class Alumno
      */
     public Alumno(String nombre,int edad)
     {
-       this.nombre = nombre;
-       this.edad = edad;
-       notas = new int[0];
-       media = 0;
-       numeroClase = 1;
-       aprobado = false;
+        this.nombre = nombre;
+        this.edad = edad;
+        notas = new int[0];
+        media = 0;
+        numeroClase = 1;
+        calificacionFinal = "suspenso";
     }
 
     /**
@@ -52,20 +52,44 @@ public class Alumno
         }
         notas = temp;
     }
-    
+
     /**
      * Metodo que calcula la nota media de un alumno
      * @return la nota media del alumno
      */
     public int calcularNotaMedia()
     {
-       
+        //variable local donde se almacena la suma de las notas del alumno
         int totalNotas = 0;
         for(int i = 0; i < notas.length; i++)
         {
             totalNotas += notas[i];
         }
-        media = totalNotas/notas.length;
+
+        //si no se ha introducido ninguna nota
+        if(notas.length == 0)
+        {
+            media = 0;  //la media sera 0
+        }
+        else
+        {
+            //se calcula la media
+            media = totalNotas/notas.length;
+        }
+
         return media;
+    }
+
+    /**
+     * Metodo que indica si el alumno esta aprobado o no
+     * @return aprobado si la nota media es mayor o igual a NOTA_APROBADO y suspenso si es menor
+     */
+    public String comprobarAprobado()
+    {
+        if(calcularNotaMedia() >= NOTA_APROBADO)
+        {
+            calificacionFinal = "aprobado";
+        }
+        return calificacionFinal;
     }
 }
